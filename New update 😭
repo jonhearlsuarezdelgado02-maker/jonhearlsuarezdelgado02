@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Sir John Ezekiel</title>
+<style>
+body{
+ margin:0;
+ background: linear-gradient(#ffdde1, #ee9ca7);
+ font-family: Arial;
+ text-align:center;
+ overflow:hidden;
+ height:100vh;
+ display:flex;
+ flex-direction:column;
+ justify-content:center;
+ align-items:center;
+}
+h1{
+ margin:0;
+ font-size:28px;
+ color:#b5004e;
+ text-shadow: 2px 2px 10px white;
+ animation: float 2s infinite alternate;
+}
+h2{ color:#7a0033; font-size:18px; margin:5px; }
+@keyframes float{ from{transform:translateY(0)} to{transform:translateY(-10px)} }
+
+.flower{
+ position:relative;
+ width:120px;
+ height:120px;
+ margin-top:20px;
+ animation: bloom 2s ease-out;
+}
+@keyframes bloom{ 0%{transform:scale(0)} 100%{transform:scale(1)} }
+.center{
+ position:absolute;
+ width:40px; height:40px;
+ background:yellow;
+ border-radius:50%;
+ left:40px; top:40px;
+ z-index:10;
+ box-shadow: 0 0 20px gold;
+}
+.petal{
+ position:absolute;
+ width:50px; height:80px;
+ background:#ff1493;
+ border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+ left:35px; top:5px;
+ transform-origin: bottom center;
+}
+.p1{ transform:rotate(0deg) }
+.p2{ transform:rotate(60deg) }
+.p3{ transform:rotate(120deg) }
+.p4{ transform:rotate(180deg) }
+.p5{ transform:rotate(240deg) }
+.p6{ transform:rotate(300deg) }
+
+.stem{
+ width:10px;
+ height:120px;
+ background:green;
+ margin:0 auto;
+ border-radius:10px;
+}
+.message{
+ background:white;
+ padding:20px;
+ border-radius:20px;
+ max-width:320px;
+ margin:20px;
+ box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+ font-size:15px;
+ color:#333;
+ line-height:1.5;
+}
+.from{ margin-top:10px; font-weight:bold; color:#b5004e; }
+
+.hearts{ position:absolute; width:100%; height:100%; top:0; left:0; pointer-events:none; }
+.heart{
+ position:absolute;
+ color:#ff0055;
+ font-size:20px;
+ animation: fall 4s linear infinite;
+}
+@keyframes fall{
+ 0%{ transform:translateY(-10vh) rotate(0deg); opacity:1 }
+ 100%{ transform:translateY(100vh) rotate(360deg); opacity:0 }
+}
+</style>
+</head>
+<body>
+
+<div class="hearts" id="hearts"></div>
+
+<h1>Happy Teachers Day!</h1>
+<h2>Sir JOHN EZEKIEL</h2>
+
+<div class="flower">
+ <div class="petal p1"></div>
+ <div class="petal p2"></div>
+ <div class="petal p3"></div>
+ <div class="petal p4"></div>
+ <div class="petal p5"></div>
+ <div class="petal p6"></div>
+ <div class="center"></div>
+</div>
+<div class="stem"></div>
+
+<div class="message">
+ Sir, thank you so much po for your patience, guidance, and for inspiring us everyday. You are one of the best teachers po! Sorry po minsan makulit kami. We appreciate you so much po Sir! <br>
+ <div class="from">- From your student,</div>
+</div>
+
+<script>
+function createHeart(){
+ const h = document.createElement('div');
+ h.className='heart';
+ h.innerHTML='❤️';
+ h.style.left=Math.random()*100+'vw';
+ h.style.animationDuration=(Math.random()*2+3)+'s';
+ document.getElementById('hearts').appendChild(h);
+ setTimeout(()=>h.remove(),4000);
+}
+setInterval(createHeart,300);
+</script>
+
+</body>
+</html>
